@@ -1,0 +1,559 @@
+
+
+  @import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@1,500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+a{
+    text-decoration: none;
+    color: var(--second);
+    opacity: 0.7;
+}
+:root{
+    --prime:rgb(51, 48, 48);
+    --second:white;
+}
+.over_all_container{
+    background-color: var(--prime);
+    width: 100%;
+    height: auto;
+    padding-top: 5px;
+    color: white;
+}
+.navi{
+    width: 97%;
+    height: 14vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--prime);
+    border-radius: 1px 20px 1px 20px;
+    padding: 10px 20px 10px;
+    position: sticky;
+    z-index: 999;
+    top: 5px;
+    left: 20px;
+}
+.navi h2{
+    font-size: 35px;
+    font-family: 'Pacifico', cursive;
+}
+.innerNav ul{
+    display: flex;
+    gap: 30px;
+    padding-right: 10px;
+    font-size: 17px;
+    font-weight: 600;
+}
+.innerNav a{
+    text-decoration: none;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+.innerNav ul li{
+  position: relative;
+  width: 120px;
+  height: 40px;
+  background-color: var(--prime);
+  display: flex;
+  align-items: center;
+  color: white;
+  flex-direction: column;
+  justify-content: center;
+  border: none;
+  padding: 12px;
+  gap: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Rubik', sans-serif;
+  text-decoration: none;
+}
+.innerNav  li::before{
+    content: '';
+  position: absolute;
+  inset: 0;
+  left: -4px;
+  top: -1px;
+  margin: auto;
+  width: 128px;
+  height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(-45deg, #0c0c0c 0%, var(--second) 100% );
+  z-index: -10;
+  pointer-events: none;
+  transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.innerNav li::after{
+    content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #0c0c0c 0%, var(--second) 100% );
+  transform: translate3d(0, 0, 0) scale(0.95);
+}
+.innerNav li:hover::before{
+    transform: rotate(-180deg);
+}
+.navi input,.navi label i{
+    display: none;
+}
+.navi input:checked~.innerNav{
+    top: 14.5vh;
+    right: 1.5%;
+}
+/* Front Image */
+.frontImg{
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    animation-name: front;
+    animation-duration: 1.5s;
+    animation-delay: 0.5s;
+    animation-timing-function: ease;
+}
+@keyframes front{
+    0% {opacity : 0.1;}
+    100%{ opacity: 1;}
+}
+.frontImg img{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    object-fit: cover;
+    object-position: 0px 0px;
+}
+.frontImg span{
+    display: block;
+    font-family: 'Rubik', sans-serif;
+}
+.frontImg h1{
+    left: 10%;
+    font-size: 55px;
+    font-family: 'Caveat', cursive;
+    position: absolute;
+    text-shadow: 0 0 6px var(--prime);
+}
+/* Beauty */
+.beauty{
+    margin: auto;
+    display: grid;
+    grid-template-columns: 3fr 3fr 3fr 3fr 3fr 2fr ;
+    gap: 20px;
+    width: 97%;
+}
+.beautyCard{
+    width: 100%;
+    height: 30vh;
+    gap: 10px;
+    border-radius:35px 5px;
+    color: var(--prime);
+    background-color: white;
+    transition: all 0.5s;
+}
+.beautyCard:hover{
+    transform: scale(1.1,1.1);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.beautyCard:hover .beautyTxt{
+    z-index: 1;
+    color: white;
+}
+.beautyTxt{
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    color: transparent;
+    transition: all 0.5s;
+    text-shadow: 0 0 8px var(--prime);
+}
+.beautyCard img{
+    width: 100%;
+    height: 100%;
+    border-radius:  35px 5px;
+    object-fit: cover;
+}
+.beautyCardLast{
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+}
+.beautyCardLast h3{
+    opacity: 0;
+    transition: all 0.3s;
+}
+.beautyCardLast span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    font-size: 28px;
+    padding: 11px;
+    color: var(--prime);
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+.beautyCardLast span:hover{
+    cursor: pointer;
+    transform: scale(1.2,1.2);
+    background-color:  rgba(255, 255, 255, 1);
+}
+.beautyCardLast span:hover~h3{
+    opacity: 1;
+}
+.frontImg~h2{
+    font-size: 35px;
+    padding: 30px 25px;
+   text-transform: uppercase;
+   color: rgba(255, 255, 255, 0.842);
+}
+
+/* Happen */
+
+.happen{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 35px;
+    padding: 10px 35px 10px;
+}
+.happenCard{
+    background-color: var(--prime);
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 8px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px var(--second);
+    color: var(--second);
+    overflow: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    transition: all 0.3s;
+}
+.happenCard:hover{
+    transform: scale(1.1,1.1);
+    transform: translate(3px,-10px);
+    cursor: pointer;
+}
+.happenCard:hover .icons{
+    gap: 25px;
+    padding-top: 23px;
+    font-size: 30px;
+    opacity: 1;
+}
+.happenCard:hover img{
+    height: 80%;
+}
+.happenCard:hover .innerHappen h3{
+    font-size: 26px;
+}
+.happenCard:hover .innerHappen p{
+    opacity: 0;
+    display: none;
+}
+.happenCard .innerHappen{
+    padding: 0px 2px;
+}
+.innerHappen p{
+    opacity: 0.9;
+    transition: all 0.3s;
+}
+.happenCard .innerHappen h3{
+    color: var(--prime);
+    text-shadow: 1px 0px 2px var(--second),0px 1px 2px var(--second),-1px 0px 2px var(--second),0px -1px 2px var(--second);
+    padding-bottom: 5px;
+}
+.happenCard img{
+    width: 100%;
+    height: 60%;
+    box-shadow: 0 0 8px var(--prime);
+    position: relative;
+    transition: all 0.3s;
+}
+.happenCard .icons :hover{
+    color: var(--prime);
+    text-shadow: 0 0 9px var(--second);
+}
+.happenCard .icons{
+    font-size: 25px;
+    display: flex;
+    gap: 15px;
+    padding: 10px 15px 10px;
+    text-shadow: 0 0 9px var(--prime);
+    flex-direction: column;
+    width: fit-content;
+    position: absolute;
+    opacity: 0;
+    transition: all 0.3s;
+}
+.happenLast{
+    height: 50vh;
+}
+
+
+/* food */
+.food{
+    display: grid;
+    grid-template-columns: 3fr 3fr 3fr 3fr 3fr 3fr;
+    grid-template-rows: 3fr 3fr;
+    padding: 15px;
+    overflow: hidden;
+}
+.foodImg{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items:start;
+    transition: all 0.3s;
+
+}
+
+.foodImg h4{
+    position: absolute;
+    padding-bottom: 1%;
+    transition: all 0.3s;
+
+}
+.foodImg img{
+    height: 100%;
+    width: 100%;
+    border-radius:5px ;
+    position: relative;
+    transition: all 0.3s;
+}
+.foodImg:hover h4{
+    margin-left: 10px;
+    z-index: 2;
+    background-color: var(--second);
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px 8px;
+    transform: rotate(-3deg);
+    text-shadow: 0 0 5px var(--prime);
+    box-shadow: 0 0 8px var(--prime);
+    border-left: 6px solid var(--prime);
+}
+.foodImg:hover{
+    transform: scale(1.1) rotate(4deg);
+}
+
+
+/* Brand */
+.brand{
+    display: grid;
+    padding: 10px 10px 20px;
+    grid-template-columns: repeat(auto-fit,minmax(130px,1fr));
+    gap: 30px;
+    overflow-x: hidden;
+}
+.brandLogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    transition: all 0.3s;
+}
+.brandLogo img{
+    filter: drop-shadow(-1px -2px  var(--second));
+    width: 100%;
+    height: 100%;
+}
+.brandLogo:hover{
+    transform: scale(1.1,1.1) translateY(10px);
+    border-radius: 10px;
+    box-shadow:-0.5px -0.5px 5px var(--prime), 0.5px 0.5px 5px var(--second);
+}
+.brandLogo:hover img{
+    animation-name: rotate;
+    animation-duration: 3.5s;
+    animation-delay: 0.3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+@keyframes rotate {
+    50%{    transform: scale(1.1,1.1) rotateY(360deg);
+    }
+    100%{    transform: scale(1.1,1.1) rotateX(360deg);
+    }
+}
+
+/* footer */
+.footer{
+    padding: 10px;
+    opacity: 0.7;
+    /* border-top: 1px solid var(--second); */
+    box-shadow: 0 0 5px var(--second);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* media screen for beauty */
+@media screen and (max-width:450px) {
+    .beauty{
+        grid-template-columns: 2fr;
+        width: 70%;
+    }
+    .beautyCard{
+        width: 100%;
+    }
+    .happen{
+        grid-template-columns: 1fr;
+        padding: 10px;
+        gap: 15px;
+    }
+    .happenCard:hover{
+        transform: scale(1.01,1.01);}
+   
+    .happenCard:hover .icons{
+        font-size: 23px;
+        gap: 18px;
+        padding: 15px 10px 10px;
+    }
+     
+}
+@media screen and (min-width:450px) and (max-width:650px) {
+    .beauty{
+        grid-template-columns: 2fr 2fr;
+        width: 70%;
+    }
+    .happen{
+        grid-template-columns: 1fr 1fr;
+        padding: 10px;
+        gap: 15px;
+    }
+    
+    .happenCard:hover{
+        transform: scale(1.03,1.03);}
+    .happenCard:hover .icons{
+        font-size: 23px;
+        gap: 12px;
+        padding: 8px 10px 10px;
+    }
+}
+@media screen and (min-width:650px) and (max-width:800px) {
+    .beauty{
+        grid-template-columns: 2fr 2fr 2fr;
+        width: 70%;
+    }
+    
+    .happenCard:hover .icons{
+        font-size: 23px;
+        gap: 8px;
+        padding: 8px 10px 10px;
+    }
+}
+@media screen and (min-width:800px) and (max-width:1000px) {
+    
+    .happenCard:hover .icons{
+        font-size: 28px;
+        gap: 8px;
+        padding: 8px 10px 10px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .navi h2{
+    font-size: 29px;
+    }
+    .navi{
+        background-color: var(--prime);
+        position: fixed;
+        left: 1.5%;
+        z-index: 999;
+    }
+    .innerNav{
+        width: 45%;
+        background-color: var(--prime);
+        position: fixed;
+        z-index: -1;
+        top: -100%;
+        right: -100%;
+        box-shadow: -2px 2px 8px var(--second);
+        border-radius: 5px;
+        transition: all 0.9s;
+    }
+    .innerNav ul{
+    padding: 30px 15px;
+    font-size: 14px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+    .innerNav ul li{
+        width: 90px;
+        height: 32px;
+    }
+    .innerNav ul li::before{
+        width: 98px;
+        height: 38px;
+    }
+    .navi label i{
+        display: block;
+        font-size: 25px;
+    }
+    .frontImg{
+        top: 0;
+        height: 100vh;
+    }
+    .frontImg h1{
+        font-size: 35px;
+    }
+    .food{
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 5px;
+    }
+    .foodImg:hover h4{
+        margin-left: 1px;
+        font-size: 15px;
+        padding: 2px 3px;
+        transform: rotate(0deg);
+    }
+    .foodImg:hover{
+        transform: rotate(0deg);
+    }
+    .brand{
+        padding-top: 10px;
+        }
+    
+    .brandLogo:hover{
+        border-radius: 5px;
+        transform: scale(1.1,1.1);
+    }
+
+}
+
+@media screen and (min-width:650px) and (max-width:850px) {
+    .innerNav ul li{
+        width: 100px;
+        height: 40px;
+    }
+    .innerNav ul li::before{
+        width: 108px;
+        height: 46px;
+    }
+    .frontImg h1{
+        font-size: 45px;
+    }
+}
+
+    
+
